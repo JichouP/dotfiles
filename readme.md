@@ -1,4 +1,7 @@
-#When you first use this
+# Environment
+Ubuntu 16.04.4 LTS
+
+# When you first use this
 1. Install git.  
 `sudo apt install git`
 2. Clone this repository.  
@@ -11,6 +14,6 @@ or
 `~/dotfiles/initzgen.sh`
 4. Reboot.
 5. Done!!!!
-#When you update
+# When you update
 1. Execute shell script.
 `~/dotfiles/update.sh`
