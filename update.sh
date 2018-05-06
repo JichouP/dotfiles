@@ -6,6 +6,7 @@ for f in .??*
 do
 [[ "$f" == ".git" ]] && continue
 [[ "$f" == ".DS_Store" ]] && continue
+[[ "$f" == "readme.md" ]] && continue
 
 echo $f
 if [ -d "${f}" ]; then
