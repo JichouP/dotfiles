@@ -1,18 +1,5 @@
-#!/bin/bash
-
-SCRIPT_DIR=$(cd $(dirname $0); pwd)
-
-for f in .??*
-do
-[[ "$f" == ".git" ]] && continue
-[[ "$f" == ".DS_Store" ]] && continue
-
-echo $f
-if [ -d "${f}" ]; then
-ln -sf $SCRIPT_DIR/$f/ ~/$f
-else
-ln -sf $SCRIPT_DIR/$f ~/$f
-fi
-done
-
-ln -sf $SCRIPT_DIR/.gitconfig ~/.gitconfig
+#!/bin/sh
+sudo apt install git
+sudo apt install vim
+sudo apt install zsh
+chsh -s $(which zsh)
