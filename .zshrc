@@ -141,10 +141,13 @@ if ! zgen saved; then
  
   zgen save
 fi
+
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 zgen prezto
 prompt pure
 PURE_PROMPT_SYMBOL=">"
+
+
 # cdを使わずにディレクトリを移動できる
 setopt auto_cd
 # "cd -"の段階でTabを押すと、ディレクトリの履歴が見れる
