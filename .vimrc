@@ -17,11 +17,11 @@ set showcmd
 " 行番号を表示
 set number
 " 現在の行を強調表示
-set cursorline
+"set cursorline
 " 現在の行を強調表示（縦）
-" set cursorcolumn
+"set cursorcolumn
 " 行末の1文字先までカーソルを移動できるように
-set virtualedit=onemore
+"set virtualedit=onemore
 " インデントはスマートインデント
 set smartindent
 " ビープ音を可視化
