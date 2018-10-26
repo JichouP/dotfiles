@@ -154,3 +154,7 @@ PURE_PROMPT_SYMBOL=">"
 setopt auto_cd
 # "cd -"の段階でTabを押すと、ディレクトリの履歴が見れる
 setopt auto_pushd
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
