@@ -146,7 +146,7 @@ fi
 
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 zgen prezto
-prompt pure
+prompt steeef
 PURE_PROMPT_SYMBOL=">"
 
 
