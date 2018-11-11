@@ -138,6 +138,10 @@ alias back='pushd'
 alias diff='diff -U1'
 alias tgz='tar -xzvf'
 alias gb='gatsby develop --port 3000'
+alias y='y'
+alias yw='yarn watch'
+alias ys='yarn start'
+alias yb='yarn build'
 
 # -------------------------------------
 # zgen
