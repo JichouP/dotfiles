@@ -127,7 +127,7 @@ alias c='cdr'
 alias phpstart='php -S localhost:3000'
 alias up='sudo apt update -y && sudo apt upgrade -y'
 alias mg='mongod --config /etc/mongod.conf'
-alias rs='source ~/.zshrc'
+alias rs='source ~/.profile'
 
 # historyに日付を表示
 alias h='fc -lt '%F %T' 1'
