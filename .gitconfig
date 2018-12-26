@@ -8,6 +8,8 @@
   cm = commit -m
   a = add --all
   f = fetch --prune
+  b = branch
+  r = reset
 [user]
 	email = akkunn100@gmail.com
 	name = JichouP
