@@ -127,7 +127,7 @@ alias c='cdr'
 alias phpstart='php -S localhost:3000'
 alias up='sudo apt update -y && sudo apt upgrade -y'
 alias mg='mongod --config /etc/mongod.conf'
-alias rs='source ~/.profile'
+alias rs='source ~/.zshrc'
 
 # historyに日付を表示
 alias h='fc -lt '%F %T' 1'
@@ -178,3 +178,5 @@ setopt auto_pushd
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
