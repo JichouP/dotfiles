@@ -177,3 +177,4 @@ setopt auto_pushd
 
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
+export PATH="$PATH:$HOME/path"
