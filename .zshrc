@@ -144,6 +144,7 @@ alias yw='yarn watch'
 alias ys='yarn start'
 alias yb='yarn build'
 alias g='git'
+alias we='explorer.exe'
 
 # -------------------------------------
 # zgen
