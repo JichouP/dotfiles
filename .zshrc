@@ -165,11 +165,14 @@ zgen load b4b4r07/enhancd
 zgen save
 fi
 
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 zgen prezto
 prompt steeef
-PURE_PROMPT_SYMBOL=">"
 
+# xmodmap
+
+if [ -e $HOME/src/xmod.sh ]; then
+  $HOME/src/xmod.sh
+fi
 
 # cdを使わずにディレクトリを移動できる
 setopt auto_cd
@@ -179,3 +182,10 @@ setopt auto_pushd
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 export PATH="$PATH:$HOME/s"
+export PATH=$PATH:/opt/genymobile/genymotion
+
+# path
+
+if [ -e $HOME/path ]; then
+  export PATH="$PATH:$HOME/path"
+fi
