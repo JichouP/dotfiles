@@ -168,12 +168,6 @@ fi
 zgen prezto
 prompt steeef
 
-# xmodmap
-
-if [ -e $HOME/src/xmod.sh ]; then
-  $HOME/src/xmod.sh
-fi
-
 # cdを使わずにディレクトリを移動できる
 setopt auto_cd
 # "cd -"の段階でTabを押すと、ディレクトリの履歴が見れる
