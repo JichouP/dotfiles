@@ -188,6 +188,7 @@ fi
 
 export PATH=$PATH:/usr/local/texlive/2019/bin/x86_64-linux
 export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:/opt/genymobile/genymotion/tools
 
 PATH="/home/jichoup/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/jichoup/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
