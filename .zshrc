@@ -66,12 +66,14 @@ zstyle ':completion:*' group-name ''
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 #ファイル補完候補に色を付ける
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
 # -------------------------------------
 # 補正機能
 # -------------------------------------
 ## 入力しているコマンド名が間違っている場合にもしかして：を出す。
 setopt correct
 SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [No/Yes/Abort/Edit]"
+
 # -------------------------------------
 # プロンプト
 # -------------------------------------
@@ -191,14 +193,6 @@ zplug "tcnksm/docker-alias", use:zshrc
 # Disable updates using the "frozen" tag
 zplug "k4rthik/git-cal", as:command, frozen:1
 
-# Grab binaries from GitHub Releases
-# and rename with the "rename-to:" tag
-zplug "junegunn/fzf-bin", \
-    from:gh-r, \
-    as:command, \
-    rename-to:fzf, \
-    use:"*darwin*amd64*"
-
 # Supports oh-my-zsh plugins and the like
 zplug "plugins/git",   from:oh-my-zsh
 
@@ -275,6 +269,23 @@ eval "$(anyenv init -)"
 export PATH="$PATH:$HOME/s"
 export PATH=$PATH:/opt/genymobile/genymotion
 
+# history
+
+# 履歴ファイルの保存先
+export HISTFILE=${HOME}/.zhistory
+
+# メモリに保存される履歴の件数
+export HISTSIZE=10000
+
+# 履歴ファイルに保存される履歴の件数
+export SAVEHIST=10000000
+
+# 重複を記録しない
+setopt hist_ignore_dups
+
+# 開始と終了を記録
+setopt EXTENDED_HISTORY
+
 # path
 
 if [ -e $HOME/path ]; then
@@ -290,3 +301,4 @@ PERL5LIB="/home/jichoup/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5L
 PERL_LOCAL_LIB_ROOT="/home/jichoup/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/jichoup/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/jichoup/perl5"; export PERL_MM_OPT;
+
