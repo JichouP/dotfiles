@@ -4,8 +4,8 @@
   co = checkout
   ps = push
   pl = pull
-  c = commit
-  cm = commit -m
+  c = commit -S
+  cm = commit -S -m
   a = add --all
   f = fetch --prune
   b = branch
@@ -13,6 +13,7 @@
 [user]
 	email = akkunn100@gmail.com
 	name = JichouP
+	signingkey = 9CB79A35588BEB67228A4D0A641B0A445B59A253
 [core]
 	editor = vim
 [push]
