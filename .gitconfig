@@ -5,7 +5,7 @@
   ps = push
   pl = pull
   c = commit -S
-  cm = commit -mS
+  cm = commit -S -m
   a = add --all
   f = fetch --prune
   b = branch
