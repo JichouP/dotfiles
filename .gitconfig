@@ -4,8 +4,8 @@
   co = checkout
   ps = push
   pl = pull
-  c = commit
-  cm = commit -m
+  c = commit -S
+  cm = commit -mS
   a = add --all
   f = fetch --prune
   b = branch
