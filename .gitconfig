@@ -4,8 +4,8 @@
   co = checkout
   ps = push
   pl = pull
-  c = commit -S
-  cm = commit -S -m
+  c = commit
+  cm = commit -m
   a = add --all
   f = fetch --prune
   b = branch
@@ -13,8 +13,12 @@
 [user]
 	email = akkunn100@gmail.com
 	name = JichouP
-	signingkey = 9CB79A35588BEB67228A4D0A641B0A445B59A253
+	signingkey = F47C135566613333
 [core]
 	editor = vim
 [push]
 	default = simple
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
