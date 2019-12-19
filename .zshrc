@@ -69,7 +69,7 @@ zstyle ':completion:*:options' description 'yes'
 # したがって，すべての マッチ種別を別々に表示させたいなら以下のようにする
 zstyle ':completion:*' group-name ''
 
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+export LS_COLORS='di=94:ln=35:so=32:pi=33:ex=31:bd=46;94:cd=43;94:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # 補正機能
@@ -111,7 +111,60 @@ add-zsh-hook precmd _update_vcs_info_msg
 
 # asdf
 
+<<<<<<< HEAD
 . $HOME/.asdf/asdf.sh
+=======
+alias lst='ls -ltr --color=auto'
+alias l='ls -ltr --color=auto'
+alias la='ls -la --color=auto'
+alias ll='ls -l --color=auto'
+alias vz='vim ~/.zshrc'
+alias up='sudo apt update -y && sudo apt upgrade -y'
+alias rs='source ~/.zshrc'
+alias h='fc -lt '%F %T' 1' # historyに日付を表示
+alias cp='cp -i'
+alias rm='rm -i'
+alias mkdir='mkdir -p'
+alias tgz='tar -xzvf'
+alias g='git'
+alias we='explorer.exe'
+alias tm='time ( zsh -i -c exit )'
+alias cl="richpager -s native"
+
+# zplug
+
+source ~/.zplug/init.zsh
+zplug "zsh-users/zsh-history-substring-search"
+zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
+zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
+zplug "peco/peco", as:command, from:gh-r
+zplug "b4b4r07/dotfiles", as:command, use:bin/peco-tmux
+zplug "b4b4r07/enhancd", use:init.sh, on:"junegunn/fzf-bin"
+zplug "JichouP/k"
+zplug "stedolan/jq", \
+    from:gh-r, \
+    as:command, \
+    rename-to:jq
+zplug "b4b4r07/emoji-cli", \
+    on:"stedolan/jq"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug 'danihodovic/steeef', as:theme
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load #--verbose
+
+# anyenv
+
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init - --no-rehash)"
+>>>>>>> 142e9ca... fix k
 
 # history
 
@@ -132,6 +185,7 @@ setopt EXTENDED_HISTORY
 
 
 
+<<<<<<< HEAD
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
@@ -139,6 +193,17 @@ if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
     command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
         print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
         print -P "%F{160}▓▒░ The clone has failed.%f%b"
+=======
+export PATH=$PATH:/usr/local/texlive/2019/bin/x86_64-linux
+export PATH=$PATH:$HOME/.cargo/bin
+export GPG_TTY=$(tty)
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+export GOPATH=$HOME/go
+
+if (which zprof > /dev/null 2>&1) ;then
+  zprof
+  # zprof | cl
+>>>>>>> 142e9ca... fix k
 fi
 
 source "$HOME/.zinit/bin/zinit.zsh"

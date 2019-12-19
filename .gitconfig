@@ -10,6 +10,8 @@
   f = fetch --prune
   b = branch
   r = reset
+  sw = switch
+  re = restore
 [user]
 	email = akkunn100@gmail.com
 	name = JichouP
