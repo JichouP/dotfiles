@@ -53,6 +53,9 @@ setopt globdots              # 明確なドットの指定なしで.から始ま
 
 setopt list_packed           # リストを詰めて表示
 
+autoload -U compinit
+compinit
+
 # 補完候補を ←↓↑→ でも選択出来るようにする
 zstyle ':completion:*:default' menu select=2
 
