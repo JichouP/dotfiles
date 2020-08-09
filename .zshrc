@@ -1,3 +1,36 @@
+# 起動速度を測定
+
+# zmodload zsh/zprof && zprof
+
+# alias
+
+alias lst='ls -ltr --color=auto'
+alias l='ls -ltr --color=auto'
+alias la='ls -la --color=auto'
+alias ll='ls -l --color=auto'
+alias vz='vim ~/.zshrc'
+alias up='sudo apt update -y && sudo apt upgrade -y'
+alias rs='source ~/.zshrc'
+alias h='fc -lt '%F %T' 1' # historyに日付を表示
+alias cp='cp -i'
+alias rm='rm -i'
+alias mkdir='mkdir -p'
+alias tgz='tar -xzvf'
+alias g='git'
+alias we='explorer.exe'
+alias tm='time ( zsh -i -c exit )'
+alias cl="richpager -s native"
+
+# export
+
+if [ -e $HOME/path ]; then
+  export PATH="$PATH:$HOME/path"
+fi
+
+export GPG_TTY=$(tty)
+export PATH=$PATH:/usr/local/texlive/2019/bin/x86_64-linux
+export PATH=$PATH:$HOME/.cargo/bin
+
 # 補完機能
 
 # 補完機能の強化
@@ -19,12 +52,6 @@ setopt extended_glob         # 拡張グロブで補完(~とか^とか。例え�
 setopt globdots              # 明確なドットの指定なしで.から始まるファイルをマッチ
 
 setopt list_packed           # リストを詰めて表示
-
-# cdを使わずにディレクトリを移動できる
-setopt auto_cd
-
-# "cd -"の段階でTabを押すと、ディレクトリの履歴が見れる
-setopt auto_pushd
 
 # 補完候補を ←↓↑→ でも選択出来るようにする
 zstyle ':completion:*:default' menu select=2
@@ -56,7 +83,7 @@ autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 autoload -Uz is-at-least
 
-# begin VCS
+# VCS
 
 zstyle ":vcs_info:*" enable git svn hg bzr
 zstyle ":vcs_info:*" formats "(%s)-[%b]"
@@ -82,58 +109,9 @@ function _update_vcs_info_msg() {
 RPROMPT="[$BLUE%~%f$DEFAULT%1(v|%F{green}%1v%f|)]"
 add-zsh-hook precmd _update_vcs_info_msg
 
-# alias
+# asdf
 
-alias lst='ls -ltr --color=auto'
-alias l='ls -ltr --color=auto'
-alias la='ls -la --color=auto'
-alias ll='ls -l --color=auto'
-alias vz='vim ~/.zshrc'
-alias up='sudo apt update -y && sudo apt upgrade -y'
-alias rs='source ~/.zshrc'
-alias h='fc -lt '%F %T' 1' # historyに日付を表示
-alias cp='cp -i'
-alias rm='rm -i'
-alias mkdir='mkdir -p'
-alias tgz='tar -xzvf'
-alias g='git'
-alias we='explorer.exe'
-alias tm='time ( zsh -i -c exit )'
-alias cl="richpager -s native"
-
-# zplug
-
-source ~/.zplug/init.zsh
-zplug "zsh-users/zsh-history-substring-search"
-zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
-zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
-zplug "peco/peco", as:command, from:gh-r
-zplug "b4b4r07/dotfiles", as:command, use:bin/peco-tmux
-zplug "b4b4r07/enhancd", use:init.sh, on:"junegunn/fzf-bin"
-zplug "supercrabtree/k"
-zplug "stedolan/jq", \
-    from:gh-r, \
-    as:command, \
-    rename-to:jq
-zplug "b4b4r07/emoji-cli", \
-    on:"stedolan/jq"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug 'danihodovic/steeef', as:theme
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-zplug load #--verbose
-
-# anyenv
-
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init - --no-rehash)"
+. $HOME/.asdf/asdf.sh
 
 # history
 
@@ -144,7 +122,7 @@ export HISTFILE=${HOME}/.zhistory
 export HISTSIZE=10000
 
 # 履歴ファイルに保存される履歴の件数
-export SAVEHIST=10000000
+export SAVEHIST=10000
 
 # 重複を記録しない
 setopt hist_ignore_dups
@@ -152,17 +130,38 @@ setopt hist_ignore_dups
 # 開始と終了を記録
 setopt EXTENDED_HISTORY
 
-# path
 
-if [ -e $HOME/path ]; then
-  export PATH="$PATH:$HOME/path"
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
 
-export PATH=$PATH:/usr/local/texlive/2019/bin/x86_64-linux
-export PATH=$PATH:$HOME/.cargo/bin
-export GPG_TTY=$(tty)
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-if (which zprof > /dev/null 2>&1) ;then
-  zprof
-  # zprof | cl
-fi
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-rust \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
+### End of Zinit's installer chunk
+
+zinit wait lucid for \
+    sbin b4b4r07/enhancd \
+    sbin supercrabtree/k \
+    sbin zsh-users/zsh-syntax-highlighting \
+
+zinit lucid for \
+    sbin danihodovic/steeef \
+
+# if (which zprof > /dev/null 2>&1) ;then
+#   zprof | less
+# fi

@@ -5,19 +5,16 @@ fi
 if !(type "zsh" > /dev/null 2>&1); then
   sudo apt install zsh
 fi
-if !(type "anyenv" > /dev/null 2>&1); then
-  git clone https://github.com/anyenv/anyenv ~/.anyenv
-  ~/.anyenv/bin/anyenv init
+if !(type "asdf" > /dev/null 2>&1); then
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 fi
-# if !(type "zgen" > /dev/null 2>&1); then
-#   git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
-# fi
 if !(type "git" > /dev/null 2>&1); then
   sudo apt install git
 fi
 if !(type "gawk" > /dev/null 2>&1); then
   sudo apt install gawk
 fi
-# install zplug
-curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+# install zinit
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+
 chsh -s $(which zsh)
