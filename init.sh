@@ -14,8 +14,8 @@ fi
 if !(type "gawk" > /dev/null 2>&1); then
   sudo apt install gawk
 fi
-if !(type "fzy" > /dev/null 2>&1); then
-  sudo apt install fzy
+if !(type "fzf" > /dev/null 2>&1); then
+  sudo apt install fzf
 fi
 # install zinit
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
