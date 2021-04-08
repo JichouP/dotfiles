@@ -20,6 +20,7 @@ alias g='git'
 alias we='explorer.exe'
 alias tm='time ( zsh -i -c exit )'
 alias cl="richpager -s native"
+alias dc="docker-compose"
 
 # export
 
