@@ -12,6 +12,7 @@
   r = reset
   sw = switch
   re = restore
+  br-prune = !git branch --merged | egrep -v '\\*|master|main' | xargs git branch -d
 [user]
 	email = akkunn100@gmail.com
 	name = JichouP
