@@ -17,3 +17,4 @@ winget install vlc
 winget install qbittorrent
 winget install sumatrapdf
 winget install slack
+winget install obs
