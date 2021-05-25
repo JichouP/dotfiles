@@ -18,3 +18,4 @@ winget install qbittorrent
 winget install sumatrapdf
 winget install slack
 winget install obs
+winget install screentogif
