@@ -19,3 +19,5 @@ winget install sumatrapdf
 winget install slack
 winget install obs
 winget install screentogif
+winget install crystaldiskinfo
+winget install coretemp
