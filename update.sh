@@ -17,3 +17,4 @@ fi
 done
 
 ln -sf $SCRIPT_DIR/.gitconfig ~/.gitconfig
+ln -sf $SCRIPT_DIR/path ~/path

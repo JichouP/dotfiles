@@ -31,6 +31,7 @@ fi
 export GPG_TTY=$(tty)
 export PATH=$PATH:/usr/local/texlive/2019/bin/x86_64-linux
 export PATH=$PATH:$HOME/.cargo/bin
+export BROWSER=$HOME/path/open_browser.sh
 
 # 補完機能
 
