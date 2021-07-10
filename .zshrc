@@ -33,6 +33,15 @@ export PATH=$PATH:/usr/local/texlive/2019/bin/x86_64-linux
 export PATH=$PATH:$HOME/.cargo/bin
 export BROWSER=$HOME/path/open_browser.sh
 
+# 関数
+
+function fix-zhistory() {
+  mv .zhistory .zhistory_bad
+  strings .zhistory_bad > .zhistory
+  fc -R .zhistory
+  rm -f .zhistory_bad
+}
+
 # 補完機能
 
 # 補完機能の強化
