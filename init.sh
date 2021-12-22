@@ -18,6 +18,6 @@ if !(type "fzf" > /dev/null 2>&1); then
   sudo apt install fzf
 fi
 # install zinit
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+sh -c "$(curl -fsSL https://git.io/zinit-install)"
 
 chsh -s $(which zsh)
