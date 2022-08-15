@@ -1,6 +1,6 @@
 # 起動速度を測定
 
-# zmodload zsh/zprof && zprof
+#zmodload zsh/zprof && zprof
 
 # alias
 
@@ -177,7 +177,8 @@ zinit wait lucid for \
 zinit lucid for \
     sbin danihodovic/steeef \
 
-# if (which zprof > /dev/null 2>&1) ;then
-#   zprof | less
-# fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#if (which zprof > /dev/null 2>&1) ;then
+#  zprof | less
+#fi
