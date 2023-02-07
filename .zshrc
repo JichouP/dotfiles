@@ -22,6 +22,7 @@ alias tm='time ( zsh -i -c exit )'
 alias cl="richpager -s native"
 alias dc="docker-compose"
 alias c="cargo"
+alias m="makers"
 
 # export
 
