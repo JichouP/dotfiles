@@ -23,6 +23,7 @@ alias cl="richpager -s native"
 alias dc="docker-compose"
 alias c="cargo"
 alias m="makers"
+alias rg="gpgconf --kill gpg-agent"
 
 # export
 
