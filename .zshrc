@@ -169,7 +169,6 @@ zi light zdharma-continuum/zinit-annex-patch-dl
 zi light zdharma-continuum/zinit-annex-bin-gem-node
 ### End of Zinit's installer chunk
 
-zi light b4b4r07/enhancd
 zi light supercrabtree/k
 zi light zsh-users/zsh-syntax-highlighting
 zi light danihodovic/steeef
