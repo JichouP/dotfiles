@@ -36,6 +36,17 @@ export PATH=$PATH:/usr/local/texlive/2019/bin/x86_64-linux
 export PATH=$PATH:$HOME/.cargo/bin
 export BROWSER=$HOME/path/open_browser.sh
 
+# Bedrockを使う設定
+export CLAUDE_CODE_USE_BEDROCK=1
+
+# 使用するモデルの指定
+export ANTHROPIC_MODEL='us.anthropic.claude-sonnet-4-20250514-v1:0'
+export ANTHROPIC_SMALL_FAST_MODEL='us.anthropic.claude-3-5-sonnet-20241022-v2:0'
+
+# プロンプトキャッシングを有効にできない場合の設定 ※
+# export DISABLE_PROMPT_CACHING=1
+
+
 # 関数
 
 function fix-zhistory() {
