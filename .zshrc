@@ -126,10 +126,6 @@ function _update_vcs_info_msg() {
 RPROMPT="[$BLUE%~%f$DEFAULT%1(v|%F{green}%1v%f|)]"
 add-zsh-hook precmd _update_vcs_info_msg
 
-# asdf
-
-. $HOME/.asdf/asdf.sh
-
 # history
 
 # 履歴ファイルの保存先

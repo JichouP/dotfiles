@@ -5,9 +5,6 @@ fi
 if !(type "zsh" > /dev/null 2>&1); then
   sudo apt install zsh
 fi
-if !(type "asdf" > /dev/null 2>&1); then
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-fi
 if !(type "git" > /dev/null 2>&1); then
   sudo apt install git
 fi
